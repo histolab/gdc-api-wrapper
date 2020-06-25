@@ -24,8 +24,6 @@ if request.status_code != 200:
     )
 
 session = requests.Session()
-session.params = {}
-session.params["api_token"] = GDC_API_TOKEN
-session.params["api_base_url"] = GDC_API_BASE_URL
+session.params = {"api_token": GDC_API_TOKEN, "api_base_url": GDC_API_BASE_URL}
 
 from .data import Data  # isort:skip # noqa
