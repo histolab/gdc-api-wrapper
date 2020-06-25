@@ -1,0 +1,24 @@
+# Wire up travis
+language: python
+sudo: false
+
+python:
+  - "3.6"
+  - "3.7"
+
+
+# command to install dependencies
+install:
+  - pip install -r requirements.txt
+  - pip install -r requirements-dev.txt
+
+# command to run tests
+script:
+  - flake8 .
+  - pytest --cov=gdcapiwrapper
+
+after_success:
+  - coveralls
+
+notifications:
+  slack: mpba:fBrjUWlUSa3XKeCA8zFsTFu2
