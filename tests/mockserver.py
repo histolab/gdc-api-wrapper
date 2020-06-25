@@ -3,6 +3,7 @@
 import json
 import re
 import socket
+import time
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from threading import Thread
 
@@ -10,7 +11,7 @@ import requests
 
 
 class MockServerRequestHandler(BaseHTTPRequestHandler):
-    API_PATTERN = re.compile(r"/data")
+    API_PATTERN = re.compile(r"/data|/")
 
     def do_GET(self):
         if re.search(self.API_PATTERN, self.path):
@@ -19,6 +20,21 @@ class MockServerRequestHandler(BaseHTTPRequestHandler):
 
             # Add response headers.
             self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.end_headers()
+
+            # Add response content.
+            response_content = json.dumps([])
+            self.wfile.write(response_content.encode("utf-8"))
+            return
+
+    def do_POST(self):
+        if re.search(self.API_PATTERN, self.path):
+            # Add response status code.
+            self.send_response(requests.codes.ok)
+
+            # Add response headers.
+            self.send_header("Content-Type", "application/json; charset=utf-8")
+            self.send_header("content-disposition", "attachment; filename=fake.gzip")
             self.end_headers()
 
             # Add response content.
@@ -36,6 +52,7 @@ def get_free_port():
 
 
 def start_mock_server(port):
+    time.sleep(1)
     mock_server = HTTPServer(("localhost", port), MockServerRequestHandler)
     mock_server_thread = Thread(target=mock_server.serve_forever)
     mock_server_thread.setDaemon(True)
