@@ -8,7 +8,7 @@ from gdcapiwrapper.data import Data
 from ..mockserver import get_free_port, start_mock_server
 
 
-class TestMockServer(object):
+class TestData(object):
     @classmethod
     def setup_class(cls):
         cls.mock_server_port = get_free_port()

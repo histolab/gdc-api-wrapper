@@ -1,5 +1,6 @@
 # encoding: utf-8
 
+
 import re
 from datetime import datetime
 from typing import Tuple
@@ -29,7 +30,7 @@ class Data(object):
         return r, local_filename
 
     @classmethod
-    def download_multiple(cls, uuid_list: list) -> str:
+    def download_multiple(cls, uuid_list: list) -> Tuple[Response, str]:
         url = f"{session.params.get('api_base_url')}/{__data_endpoint__}"
         with requests.post(url, stream=True, data={"ids": uuid_list}) as r:
             d = r.headers["content-disposition"]

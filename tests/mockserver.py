@@ -10,10 +10,10 @@ import requests
 
 
 class MockServerRequestHandler(BaseHTTPRequestHandler):
-    USERS_PATTERN = re.compile(r"/data")
+    API_PATTERN = re.compile(r"/data")
 
     def do_GET(self):
-        if re.search(self.USERS_PATTERN, self.path):
+        if re.search(self.API_PATTERN, self.path):
             # Add response status code.
             self.send_response(requests.codes.ok)
 
