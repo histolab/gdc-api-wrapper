@@ -1,0 +1,7 @@
+pytest
+pytest-cov
+coveralls
+coverage
+flake8
+ipdb
+isort
