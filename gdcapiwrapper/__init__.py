@@ -4,7 +4,6 @@ import os
 
 import requests
 
-
 GDC_API_TOKEN = os.environ.get("GCC_API_TOKEN", None)
 GDC_API_BASE_URL = os.environ.get("GDC_API_BASE_URL", "https://api.gdc.cancer.gov/")
 
@@ -29,4 +28,4 @@ session.params = {}
 session.params["api_token"] = GDC_API_TOKEN
 session.params["api_base_url"] = GDC_API_BASE_URL
 
-from .data import Data  # isort:skip
+from .data import Data  # isort:skip # noqa
