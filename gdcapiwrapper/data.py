@@ -1,8 +1,8 @@
 # encoding: utf-8
 
-
 import re
 from datetime import datetime
+from typing import Tuple
 
 import requests
 from responses import Response
@@ -10,7 +10,6 @@ from tqdm import tqdm
 
 from . import session
 from .util import copyfileobj
-from typing import Tuple
 
 __data_endpoint__ = "data"
 

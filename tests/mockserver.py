@@ -1,11 +1,11 @@
-# Standard library imports...
-from http.server import BaseHTTPRequestHandler, HTTPServer
+# encoding: utf-8
+
 import json
 import re
 import socket
+from http.server import BaseHTTPRequestHandler, HTTPServer
 from threading import Thread
 
-# Third-party imports...
 import requests
 
 
