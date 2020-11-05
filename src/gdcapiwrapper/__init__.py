@@ -1,9 +1,9 @@
 # encoding: utf-8
 
 import os
-
 import requests
 
+__version__ = "0.1"
 GDC_API_TOKEN = os.environ.get("GCC_API_TOKEN", None)
 GDC_API_BASE_URL = os.environ.get("GDC_API_BASE_URL", "https://api.gdc.cancer.gov/")
 
@@ -17,6 +17,8 @@ class APITokenMissingError(Exception):
 
 
 request = requests.get(f"{GDC_API_BASE_URL}/status")
+
+
 if request.status_code != 200:
     raise APIBaseURLStatusError(
         f"{GDC_API_BASE_URL} status: {request.status_code}."
