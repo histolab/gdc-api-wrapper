@@ -10,6 +10,3 @@ The GDC API drives the GDC Data and Submission Portals and provides programmatic
 ## Features implemented
 - Downloading a Single File using GET 
 - Downloading Multiple Files using POST
-
-## Usage
-`pip install gdc-api-wrapper`
