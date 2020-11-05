@@ -3,7 +3,7 @@
 import os
 import requests
 
-__version__ = "0.1b"
+__version__ = "0.1"
 GDC_API_TOKEN = os.environ.get("GCC_API_TOKEN", None)
 GDC_API_BASE_URL = os.environ.get("GDC_API_BASE_URL", "https://api.gdc.cancer.gov/")
 
