@@ -1,6 +1,5 @@
 # encoding: utf-8
 
-
 import os
 import re
 from datetime import datetime
@@ -11,7 +10,7 @@ from responses import Response
 from tqdm import tqdm
 
 from . import session
-from .util import copyfileobj
+from ..util import copyfileobj
 
 __data_endpoint__ = "data"
 
@@ -19,7 +18,7 @@ base_url = f"{session.params.get('api_base_url')}/{__data_endpoint__}"
 
 
 class Data(object):
-    """ Provides Data objects for https://api.gdc.cancer.gov/data/ `Data Endpoints`
+    """Provides Data objects for https://api.gdc.cancer.gov/data/ `Data Endpoints`
 
     Includes endpoints for file(s) download
     """
@@ -46,7 +45,7 @@ class Data(object):
         """
         url = f"{base_url}/{uuid}"
 
-        local_filename = uuid if not name else name
+        local_filename = name if name else uuid
         with requests.get(url, stream=True) as r:
             total_size = int(r.headers.get("content-length", 0))
             bar = tqdm(total=total_size, unit="iB", unit_scale=True)
