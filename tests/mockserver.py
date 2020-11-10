@@ -11,7 +11,7 @@ import requests
 
 
 class MockServerRequestHandler(BaseHTTPRequestHandler):
-    API_PATTERN = re.compile(r"/data|/")
+    API_PATTERN = re.compile(r"/data|query|/")
 
     def do_GET(self):
         if re.search(self.API_PATTERN, self.path):
