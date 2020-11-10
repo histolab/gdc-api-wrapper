@@ -78,3 +78,13 @@ response, filename = Data.download_series_instance_images(
 ```
 NOTE: `path` and `name` are optional, by default path is your current directory and if name is 
 not provided it will be saved with the SOPInstanceUID as filename.
+
+## Changelog
+
+### 0.1
+- TCGA Api endpoints
+
+### 0.2
+- Bug Fix on TCGA Apis
+- Public interface refactoring [breaking change]
+- TCIA Api endpoints
