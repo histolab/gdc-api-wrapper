@@ -89,7 +89,7 @@ class TestTCIAData(object):
         assert response.ok is True
         assert os.path.exists(os.path.join(tmpdir, "sopfakeuid.dcm")) is True
 
-    def download_series_instance_images(self, tmpdir):
+    def test_download_series_instance_images(self, tmpdir):
         base_url = "http://localhost:{port}/query".format(port=self.mock_server_port)
         with mock.patch.dict(
             "gdcapiwrapper.tcia.tcia.__dict__", {"base_url": base_url}

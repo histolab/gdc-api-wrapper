@@ -1,6 +1,7 @@
 Genomic Data Commons API wrapper
 ================================
-A simple Python wrapper for the [GDC Application Programming Interface (API)](https://portal.gdc.cancer.gov/)
+A simple Python wrapper for the [GDC Application Programming Interface (API)](https://portal.gdc.cancer.gov/) and 
+[Cancer Imaging Archive](https://www.cancerimagingarchive.net/)
 
 [![Build Status](https://travis-ci.com/histolab/gdc-api-wrapper.svg?branch=master)](https://travis-ci.com/histolab/gdc-api-wrapper)
 [![Coverage Status](https://coveralls.io/repos/github/histolab/gdc-api-wrapper/badge.svg?branch=master)](https://coveralls.io/github/histolab/gdc-api-wrapper?branch=master)
@@ -21,7 +22,7 @@ The GDC API drives the GDC Data and Submission Portals and provides programmatic
 ### Download single file
 ```python
 from gdcapiwrapper.tcga import Data
-Data.download(uuid="uuid-file-you-wanna-download", path="/local/path", name="filename")
+response, filename = Data.download(uuid="uuid-file-you-wanna-download", path="/local/path", name="filename")
 ```
 NOTE: `path` and `name` are optional, by default path is your current directory and if name is 
 not provided it will be saved with the UUID as filname.
